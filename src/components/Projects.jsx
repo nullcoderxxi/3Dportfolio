@@ -36,7 +36,7 @@ const projects = [
     desc: 'AI-powered resume builder with live preview, 3 templates, score meter, AI suggestions and PDF export.',
     color: '#f59e0b',
     emoji: '🤖',
-    github: 'https://github.com/nullcoderxxi/ai-resume-builder',
+    github: 'https://github.com/nullcoderxxi/-ai-resume-builder',
     demo: 'https://airesumebuilderbyaman.netlify.app/',
   },
   {
