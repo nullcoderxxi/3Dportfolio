@@ -5,66 +5,39 @@ import { useInView } from 'react-intersection-observer';
 const projects = [
   {
     name: 'Task Flow',
-    stack: ['MERN', 'JWT', 'AWS'],
-    desc: 'Team & task management system with role-based access and real-time updates. Boosted team productivity by 35%.',
+    stack: ['React', 'Vite', 'Framer Motion', 'Three.js'],
+    desc: 'Team & task management Kanban board with drag-and-drop, spring animations, 3D effects and real-time stats.',
     color: '#00f5d4',
     emoji: '📋',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
-  },
-  {
-    name: 'ShopSphere',
-    stack: ['MERN', 'Redux', 'Stripe', 'AWS S3'],
-    desc: 'Full-featured e-commerce platform with payments, inventory management, and admin dashboard.',
-    color: '#06b6d4',
-    emoji: '🛒',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
-  },
-  {
-    name: 'ChatterBox',
-    stack: ['MERN', 'Socket.io', 'Redis', 'Docker'],
-    desc: 'Real-time chat application with private/group rooms, online presence, and file sharing.',
-    color: '#818cf8',
-    emoji: '💬',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
-  },
-  {
-    name: 'AI Resume Builder',
-    stack: ['Python', 'Flask', 'React', 'OpenAI', 'PostgreSQL'],
-    desc: 'GPT-powered resume generator with templates, ATS scoring, and PDF export.',
-    color: '#f59e0b',
-    emoji: '🤖',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
+    github: 'https://github.com/nullcoderxxi/taskflow',
+    demo: 'https://taskflowbyaman.netlify.app/',
   },
   {
     name: 'StockPulse',
-    stack: ['Python', 'Flask', 'React', 'Chart.js'],
-    desc: 'Live stock market dashboard with portfolio tracking, alerts, and historical analysis.',
+    stack: ['React', 'Recharts', 'Framer Motion', 'Vite'],
+    desc: 'Live stock market dashboard with portfolio tracking, animated charts, sector breakdown and news feed.',
     color: '#10b981',
     emoji: '📈',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
-  },
-  {
-    name: 'MedBook',
-    stack: ['MERN', 'Stripe', 'AWS', 'Twilio'],
-    desc: 'Healthcare appointment booking system with SMS reminders and telemedicine support.',
-    color: '#ec4899',
-    emoji: '🏥',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
+    github: 'https://github.com/nullcoderxxi/stockpulse',
+    demo: 'https://stockpulsebyaman.netlify.app/',
   },
   {
     name: 'DevBlog CMS',
-    stack: ['Next.js', 'Node.js', 'MongoDB', 'GraphQL'],
-    desc: 'Headless CMS with Markdown editor, SEO optimisation, rich text, and tags.',
-    color: '#00f5d4',
+    stack: ['React', 'GraphQL', 'MongoDB', 'Apollo', 'Three.js'],
+    desc: 'Full-stack blog CMS with GraphQL API, JWT auth, admin panel, syntax highlighting and nested comments.',
+    color: '#818cf8',
     emoji: '✍️',
-    github: 'https://github.com/nullcoderxxi',
-    demo: '#',
+    github: 'https://github.com/nullcoderxxi/devblog',
+    demo: 'https://devblogbyaman.netlify.app/',
+  },
+  {
+    name: 'AI Resume Builder',
+    stack: ['React', 'Three.js', 'Framer Motion', 'html2pdf'],
+    desc: 'AI-powered resume builder with live preview, 3 templates, score meter, AI suggestions and PDF export.',
+    color: '#f59e0b',
+    emoji: '🤖',
+    github: 'https://github.com/nullcoderxxi/ai-resume-builder',
+    demo: 'https://airesumebuilderbyaman.netlify.app/',
   },
   {
     name: 'ExpenseIQ',
@@ -72,7 +45,34 @@ const projects = [
     desc: 'Smart budget tracker with bank integration, AI-powered categorisation, and analytics.',
     color: '#06b6d4',
     emoji: '💰',
-    github: 'https://github.com/nullcoderxxi',
+    github: 'https://github.com/nullcoderxxi/expenseiq',
+    demo: '#',
+  },
+  {
+    name: 'ChatterBox',
+    stack: ['MERN', 'Socket.io', 'Redis', 'Docker'],
+    desc: 'Real-time chat application with private/group rooms, online presence, and file sharing.',
+    color: '#ec4899',
+    emoji: '💬',
+    github: 'https://github.com/nullcoderxxi/chatterbox',
+    demo: '#',
+  },
+  {
+    name: 'MedBook',
+    stack: ['MERN', 'Stripe', 'AWS', 'Twilio'],
+    desc: 'Healthcare appointment booking system with SMS reminders and telemedicine support.',
+    color: '#f59e0b',
+    emoji: '🏥',
+    github: 'https://github.com/nullcoderxxi/medbook',
+    demo: '#',
+  },
+  {
+    name: 'ShopSphere',
+    stack: ['MERN', 'Redux', 'Stripe', 'AWS S3'],
+    desc: 'Full-featured e-commerce platform with payments, inventory management, and admin dashboard.',
+    color: '#00f5d4',
+    emoji: '🛒',
+    github: 'https://github.com/nullcoderxxi/shopsphere',
     demo: '#',
   },
 ];
@@ -153,20 +153,26 @@ function ProjectCard({ project, delay }) {
       <div style={{ display: 'flex', gap: '10px' }}>
         <a
           href={project.demo}
+          target={project.demo !== '#' ? '_blank' : undefined}
+          rel="noopener noreferrer"
           style={{
             flex: 1,
             padding: '9px 0',
-            background: `linear-gradient(135deg, ${project.color}, ${project.color}bb)`,
-            color: '#0d1117',
+            background: project.demo !== '#'
+              ? `linear-gradient(135deg, ${project.color}, ${project.color}bb)`
+              : 'rgba(255,255,255,0.06)',
+            color: project.demo !== '#' ? '#0d1117' : '#4a5568',
             borderRadius: '8px',
             textDecoration: 'none',
             fontSize: '13px',
             fontWeight: 700,
             textAlign: 'center',
             transition: 'all 0.2s',
+            border: project.demo !== '#' ? 'none' : '1px solid rgba(255,255,255,0.08)',
+            cursor: project.demo !== '#' ? 'pointer' : 'default',
           }}
         >
-          Live Demo
+          {project.demo !== '#' ? '🔗 Live Demo' : '🔜 Coming Soon'}
         </a>
         <a
           href={project.github}
