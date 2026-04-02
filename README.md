@@ -4,7 +4,7 @@
 
 A professional, corporate-style developer portfolio built with React.js, Three.js, Framer Motion, and Tailwind CSS.
 
-**Live site:** [amandeep-portfolio.netlify.app](https://amandeep-portfolio.netlify.app)
+**Live site:** [amandeepsinghportfolio.netlify.app/](https://amandeepsinghportfolio.netlify.app/)
 
 ---
 
